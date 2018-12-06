@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title id="titulo" *ngIf="!isOn" class="animated fadeIn" style="font-family: alegre_sansregular;">Iglesias</ion-title>
+    <ion-searchbar color="titulo" id="barra" class="animated fadeIn" *ngIf="isOn" placeholder="Buscar por zona" [(ngModel)]="busqueda">
+    </ion-searchbar>
+
+    <ion-buttons end>
+      <button (click)="toggleDetails()" icon-only="" ion-button="" class="disable-hover bar-button bar-button-ios bar-button-default bar-button-default-ios">
+        <span class="button-inner">
+          <ion-icon name="search" role="img" class="icon icon-ios ion-ios-search" aria-label="search"></ion-icon>
+        </span>
+        <div class="button-effect">
+
+        </div>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;width: 100%;">
+    <img src="assets/imgs/iconoiglesias.jpg" alt="logo" style="width: 20%;display: inline-block;" class=" claseImg animated bounce"
+    />
+    <h2 style="    display: inline-block;
+        width: 79%;
+        font-size: 201%;">{{mensaje}}</h2>
+  </div>
+  <p style="text-align: justify;">¡Cónoce las congregaciones y puntos de predicación que hay cerca de ti! NO DEJES DE CONGREGARTE ¡Ven y asiste a una!</p>
+
+
+  <ion-list *ngIf="iglesias.length > 0">
+    <ion-item-sliding class="animated rubberBand">
+      <ion-item (click)="clickIglesia(iglesia)" *ngFor="let iglesia of iglesias | search : busqueda" style="border-bottom: solid 0.7px;border-bottom-color: #b9b6b6;">
+        <ion-avatar item-start>
+          <img *ngIf="iglesia.ruta_imagen !== null" src="{{iglesia.ruta_imagen}}">
+          <img *ngIf="iglesia.base_64 !== null && iglesia.ruta_imagen == null" src="data:image/jpeg;base64,{{iglesia.base_64}}">
+          <img *ngIf="iglesia.base_64 == null && iglesia.ruta_imagen == null" src="assets/imgs/teacher.png">
+        </ion-avatar>
+        <h2>{{iglesia.nombre}} </h2>
+        <p>
+          <strong>Dirigido por: </strong>{{iglesia.nombre_encargado}} {{iglesia.apellido_paterno_encargado}} {{iglesia.apellido_materno_encargado}}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

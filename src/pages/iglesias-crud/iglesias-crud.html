@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="titulo">
+    <ion-title style="font-family: alegre_sansregular;">Crear Iglesia/Punto de Predicación</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span color="secundary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="text-align: center;">
+    <img *ngIf="base64Image == null" src="assets/imgs/addigle.png" alt="logo" style="width: 100%;" class=" claseImg animated bounce"
+    />
+    <img *ngIf="base64Image !== null" src="data:image/jpeg;base64,{{base64Image}}" alt="logo" style="width: 100%;" class=" claseImg animated bounce"
+    />
+
+    <img src="assets/imgs/dollar.png" alt="logo" 
+      style="width: 9%;
+      position: absolute;
+      margin-top: -32px;
+      margin-left: 39%;
+      box-shadow: 1px 1px 11px #57aaef;
+      border-radius: 16px;" (click)="pagar()"/>
+  </div>
+
+  <input placeholder="Nombre de la Iglesia/Punto de Predicación" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.nombreIglesia"
+  />
+  <input placeholder="Denominación" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.denominacion" />
+  <div style="text-align: center;
+  border-bottom: solid 1px #ded4d4;
+  margin-bottom: 18px;">
+    <p>Dirección</p>
+  </div>
+  <select class="mySelect" [(ngModel)]="idPais" (ngModelChange)="onChangePais($event)">
+    <option *ngFor="let pais of paises" [ngValue]="pais.id">
+      {{pais.nombre}}
+    </option>
+  </select>
+
+  <select class="mySelect" [(ngModel)]="idEstado" (ngModelChange)="onChangeEstado($event)">
+    <option *ngFor="let estado of estados" [ngValue]="estado.id">
+      {{estado.nombre}}
+    </option>
+  </select>
+
+  <select class="mySelect" [(ngModel)]="iglesia.idMunicipio">
+    <option *ngFor="let municipio of municipios" [ngValue]="municipio.id">
+      {{municipio.nombre}}
+    </option>
+  </select>
+
+  <input placeholder="Calle" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.calle" />
+  <input placeholder="No Exterior" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.numeroExterior" />
+  <input placeholder="No Interior" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.numeroInterior" />
+  <input placeholder="Colonia" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.colonia" />
+  <input placeholder="Código Postal" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.codigoPostal" />
+
+  <div style="text-align: center;
+  border-bottom: solid 1px #ded4d4;
+  margin-bottom: 18px;">
+    <p>Datos de Contacto</p>
+  </div>
+
+  <input placeholder="Teléfono" class="myInput3" style="margin-top: 14px;" mask='999-999-9999' [(ngModel)]="iglesia.telefono"
+  />
+  <input placeholder="Email de Contacto" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.email" />
+
+  <input placeholder="Invitación y Horarios" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.invitacionHorarios"
+  />
+
+  <input placeholder="Nombre del Pastor ó Encargado" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.nombrePastor"
+  />
+  <input placeholder="Apellido Paterno del Pastor ó Encargado" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.apellidoPaternoPastor"
+  />
+  <input placeholder="Apellido Materno del Pastor ó Encargado" class="myInput3" style="margin-top: 14px;" [(ngModel)]="iglesia.apellidoMaternoPastor"
+  />
+
+  <div style="margin-top: 25px">
+    <input type="checkbox" id="cbox2" value="second_checkbox" [(ngModel)]="w" style="width: 20px;
+    height: 20px;">
+    <label for="cbox2" style="font-size: 100%;">Suscribirme a Minuto y Medio por WhatsApp</label>
+  </div>
+  <div style="margin-top: 25px">
+    <input type="checkbox" id="cbox2" value="second_checkbox" [(ngModel)]="s" style="width: 20px;
+    height: 20px;">
+    <label for="cbox2" style="font-size: 100%;">Sucribirme gratis al boletin de Soy Luz</label>
+  </div>
+  <div style="margin-top: 25px">
+    <input type="checkbox" id="cbox2" value="second_checkbox" [(ngModel)]="n" style="width: 20px;
+    height: 20px;">
+    <label for="cbox2" style="font-size: 100%;">Enterarme de los Eventos de mi zona</label>
+  </div>
+
+  <button ion-button block (click)="enviar()" style="margin-top: 23px">ENVIAR</button>
+
+</ion-content>
+
+<ion-fab bottom right class="animated swing">
+  <button ion-fab >
+      <img src="assets/imgs/camara.png" alt="logo"/>
+  </button>
+  <ion-fab-list side="left">
+      <button ion-fab (click)="tomarFoto()">
+          <img src="assets/imgs/camera.png" alt="logo"/>
+      </button>
+      <button ion-fab (click)="seleccionarFoto()">
+          <img src="assets/imgs/gallery.png" alt="logo"/>
+      </button>
+      <button ion-fab (click)="borrarImagen()">
+          <img src="assets/imgs/eraser.png" alt="logo"/>
+      </button>
+  </ion-fab-list>
+</ion-fab>

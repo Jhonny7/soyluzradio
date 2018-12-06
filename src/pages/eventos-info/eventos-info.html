@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="titulo">
+    <ion-title style="font-family: alegre_sansregular;">Evento</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span color="secundary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="text-align: center;" *ngIf="evento.ruta_imagen !== null">
+    <img src="{{evento.ruta_imagen}}" alt="logo" style="width: 68%;" class=" claseImg animated bounce" />
+  </div>
+  <div style="text-align: center;" *ngIf="evento.base_64 !== null">
+    <img src="data:image/jpeg;base64,{{evento.base_64}}" alt="logo" style="width: 68%;" class=" claseImg animated bounce" />
+  </div>
+  <div style="text-align: center;" *ngIf="evento.base_64 == null && evento.ruta_imagen == null">
+    <img src="assets/imgs/eventos.png" alt="logo" style="width: 68%;" class=" claseImg animated bounce" />
+  </div>
+
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.nombre !== null">
+    Nombre del Evento:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.nombre !== null">
+    <div>{{evento.nombre}}</div>
+  </ion-item-divider>
+
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.direccion !== null">
+    Dirección:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.direccion !== null">
+    <p>{{evento.direccion}}</p>
+  </ion-item-divider>
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.telefono !== null">
+    Tel. Contacto:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.telefono !== null">
+    <div>{{evento.telefono}}</div>
+  </ion-item-divider>
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.descripcion !== null">
+    Invitación y/u Horarios:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.descripcion !== null">
+    <p>{{evento.descripcion}}</p>
+  </ion-item-divider>
+
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.fecha_evento !== null">
+    Fecha del Evento:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.fecha_evento !== null">
+    <p>{{evento.fecha_evento}}</p>
+  </ion-item-divider>
+
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;font-size: 149%;" *ngIf="evento.email !== null">
+    Email:
+  </ion-item-divider>
+  <ion-item-divider *ngIf="evento.email !== null">
+    <div>{{evento.email}}</div>
+  </ion-item-divider>
+</ion-content>
+
+<ion-fab bottom right class="animated swing">
+  <button ion-fab (click)="irMapa()" style="background-color: #fabb0c">
+    <img src="assets/imgs/maps.png" alt="logo"/>
+  </button>
+</ion-fab>

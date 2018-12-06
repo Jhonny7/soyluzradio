@@ -1,0 +1,56 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-item class="item item-thumbnail-left" style="
+                background-image: url(assets/imgs/rad.jpg);
+                background-size: 100%;
+                background-position: center center;">
+      <img src="assets/imgs/logo.png" alt="Fry" class="animated myImagen"
+       style="top: 16px !important;left: 16px !important;height: 65px !important;border-radius: 0px !important;width: 67px !important;opacity: -1.6;">
+      <div class="menu-bottom" style="    color: #343434;
+      font-size: x-large;
+      text-shadow: 2px 2px 0px #ffffffb5;
+      font-weight: 700;
+      font-family: alegre_sansregular;">
+        Menu
+      </div>
+    </ion-item>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+
+      <div *ngFor="let p of pages">
+        <ion-item menuClose class="item item-icon-right" (click)="openPage(p)" style="box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);">
+          <img src="assets/imgs/{{p.img}}" alt="logo" style="    /* height: 35%; */
+            width: 11%;
+            /* margin-top: 1px; */
+            position: absolute;" />
+          <h2 style="display: inline-block;
+            margin-left: 50px;
+            margin-top: 14px;
+            font-size: 139%;
+            font-weight: 600;
+            font-family: alegre_sansregular;">{{ p.nombre }}</h2>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <div>
+        <button ion-button outline style="width: 48%;" (click)="exitApp()">
+          <ion-icon name="close-circle" class="botonFooter"></ion-icon>
+          Salir
+        </button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-menu>
+<audio id="soy">
+  <source src="http://78.129.232.162:36434/stream.mp3" type="audio/mp3" />
+</audio>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+  
+</ion-nav>

@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title style="font-family: alegre_sansregular;">Programas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <div style="text-align: center;">
+    <img src="assets/imgs/programacionTotal.png" alt="logo" style="width: 100%;" class=" claseImg animated bounce" />
+  </div>
+
+  <ion-list *ngIf="programas.length > 0">
+    <ion-item-sliding  class="animated rubberBand">
+      <ion-item (click)="clickPrograma(programa)" *ngFor="let programa of programas" style="border-bottom: solid 0.7px;border-bottom-color: #cacaca7d;">
+        <ion-avatar item-start>
+            <img *ngIf="programa.imagen !== null" src="{{programa.imagen}}" >
+            <img *ngIf="programa.imagen == null" src="assets/imgs/mic.png">
+        </ion-avatar>
+        <h2>{{programa.nombrePrograma}} </h2>
+        <p *ngIf="programa.diaFin !== null">De {{programa.diaInicio}} a {{programa.diaFin}} De {{programa.horaInicio}} a {{programa.horaFin}}</p>
+        <p *ngIf="programa.diaFin == null">Todos los {{programa.diaInicio}} De {{programa.horaInicio}} a {{programa.horaFin}}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

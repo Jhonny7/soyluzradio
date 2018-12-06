@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="titulo">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title id="titulo" *ngIf="!isOn" class="animated fadeIn" style="font-family: alegre_sansregular;">Busca tu Radio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;">
+    <img src="assets/imgs/programacionRadio.jpg" alt="logo" style="width: 100%;" class=" claseImg animated bounce" />
+    <!--<h5 class="animated pulse">Directorio de Ministerios</h5>-->
+  </div>
+  
+  <ion-list>
+      <ion-item-sliding  class="animated rubberBand">
+        <ion-item (click)="clickRadio(radio)" *ngFor="let radio of radios" style="border-bottom: solid 0.7px;border-bottom-color: #cacaca7d;">
+          <ion-avatar item-start>
+              <img *ngIf="radio.imagen !== null" src="{{radio.imagen}}" >
+              <img *ngIf="radio.imagen == null" src="assets/imgs/mic.png">
+          </ion-avatar>
+          <h2>{{radio.nombre}}</h2>
+          <p>{{radio.frase}}</p>
+        </ion-item>
+      </ion-item-sliding> 
+    </ion-list>
+</ion-content>

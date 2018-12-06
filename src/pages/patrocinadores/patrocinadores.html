@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title style="font-family: alegre_sansregular;">Patrocinadores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <div style="text-align: center;">
+    <img src="assets/imgs/flechas.png" alt="logo" style="width: 100%;" class=" claseImg animated bounce" />
+  </div>
+
+  <div *ngFor="let patrocinador of patrocinadores" style="margin-top: 14px">
+    <div style="text-align: center" (click)="clickPatrocinador(patrocinador)">
+      <img *ngIf="patrocinador.imagen !== null" src="{{patrocinador.imagen}}" style="width: 45%;border-radius: 5px">
+    </div>
+    <div style="text-align: center">
+      <h2 style="font-family: alegre_sansregular;">{{patrocinador.nombre}}</h2>
+    </div>
+  </div>
+</ion-content>

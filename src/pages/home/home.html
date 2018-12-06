@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="titulo">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="font-family: alegre_sansregular;">Bienvenid@</ion-title>
+    
+
+      <ion-buttons end>
+        <button ion-button icon-only (click)="shared()">
+            <ion-icon name="share"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <img src="assets/imgs/micros3.png" alt="logo" style="width: 100%;" class=" claseImg animated bounceInDown"/>
+    </div>
+        
+    <ion-list>
+        <div class="row row-wrap row-no-padding">
+            <ion-item *ngFor="let p of pages" class="col col-50 button button-icon light animated bounceInUp " 
+            [ngStyle]="{ 'background-color' : p.color }" style="height: 10%;border-radius: 0;" (click)="irA(p)">
+                    <div style="text-align: center;">
+                            <img src="assets/imgs/{{p.img}}" alt="logo" class="myImagen" style="height: 23%"/>
+                            <p class="bold" style="font-size: 97%;color:aliceblue;text-shadow: 1px 1px 7px #123;">{{p.nombre}}</p>
+                    </div>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-content>

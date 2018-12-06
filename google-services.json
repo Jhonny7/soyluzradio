@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "638446345724",
+    "firebase_url": "https://soyluzradio-57f13.firebaseio.com",
+    "project_id": "soyluzradio-57f13",
+    "storage_bucket": "soyluzradio-57f13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638446345724:android:ea6f1f37a67f7682",
+        "android_client_info": {
+          "package_name": "mx.com.fares.soyluzradio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638446345724-ccu1rernmff7l9rgen0ohj8si1mcr2an.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAshNjbJVck87J0STP1LswDqmvnuTb6mXM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

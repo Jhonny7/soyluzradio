@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title style="font-family: alegre_sansregular;">Eventos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;">
+    <img src="assets/imgs/eventosy.PNG" alt="logo" style="width: 100%;" class=" claseImg animated bounce" />
+    <!--<h5 class="animated pulse">Directorio de Ministerios</h5>-->
+  </div>
+
+  <ion-item-divider style="border-bottom: none;font-family: alegre_sansregular;color:#676666;text-align: center;font-size: 150%;">
+      Delimita tu búsqueda
+  </ion-item-divider>
+
+  <select class="mySelect" [(ngModel)]="idPais" (ngModelChange)="onChangePais($event)" style="margin-top: 14px;">
+    <option *ngFor="let pais of paises" [ngValue]="pais.id">
+      {{pais.nombre}}
+    </option>
+  </select>
+
+  <select class="mySelect" [(ngModel)]="idEstado" (ngModelChange)="onChangeEstado($event)" style="margin-top: 14px;">
+    <option *ngFor="let estado of estados" [ngValue]="estado.id">
+      {{estado.nombre}}
+    </option>
+  </select>
+
+  <select class="mySelect" [(ngModel)]="idMunicipio" style="margin-top: 14px;">
+    <option *ngFor="let municipio of municipios" [ngValue]="municipio.id" >
+      {{municipio.nombre}}
+    </option>
+  </select>
+
+  <button ion-button block (click)="buscar()" style="margin-top: 23px" >BUSCAR</button>
+
+</ion-content>
+
+<ion-fab bottom right class="animated swing">
+    <button ion-fab (click)="ultimas()" style="background-color: #ffff00">
+        <img src="assets/imgs/list.png" alt="logo" style="width: 57%;"/>
+    </button>
+  </ion-fab>

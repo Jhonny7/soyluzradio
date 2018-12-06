@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="titulo">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title id="titulo" *ngIf="!isOn" class="animated fadeIn" style="font-family: alegre_sansregular;">Radio {{radio.nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background-color: #060608;">
+  <div style="text-align: center;" *ngIf="radio.imagen == null">
+    <img src="assets/imgs/micros.jpg" alt="Fry" class="animated rubberBand myImagen" />
+  </div>
+  <div style="text-align: center;" *ngIf="radio.imagen !== null">
+    <img src="{{radio.imagen}}" alt="Fry" class="animated rubberBand myImagen" />
+  </div>
+
+  <div style="text-align: center;" class="animated rubberBand">
+    <img id="play" *ngIf="audio" src="assets/imgs/play.png" alt="logo" 
+    style="text-align: center;margin-top: 34px;" (click)="playRadio();"/>
+
+    <img id="pause" *ngIf="!audio" src="assets/imgs/pausa.png" alt="logo" 
+    style="text-align: center;margin-top: 34px;" (click)="pauseRadio();"/>
+
+    <audio id="soy">
+      <source src="{{radio.path}}" type="audio/mp3" />
+    </audio>
+  </div>
+  <ion-slides *ngIf="publicidades && publicidades.length" style="margin-top: -30%;" autoplay="5000" loop="true" speed="500" pager="true">
+    <ion-slide *ngFor="let publicidad of publicidades" (click)="irA(publicidad)">
+      <img src="{{publicidad.imagen}}">
+    </ion-slide>
+  </ion-slides>
+</ion-content>

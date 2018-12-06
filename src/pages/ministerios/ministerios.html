@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title style="font-family: alegre_sansregular;">Ministerios</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openPopOver($event)">
+          <ion-icon name="information"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;" *ngIf="!cards || cards.length == 0">
+    <img src="assets/imgs/unaimg.png" alt="logo" style="width: 100%;" class=" claseImg animated bounce" />
+    <!--<h5 class="animated pulse">Directorio de Ministerios</h5>-->
+  </div>
+  <ion-list *ngIf="categoriasMinisterios.length > 0">
+    <ion-item-sliding *ngFor="let categoria of categoriasMinisterios" class="animated rubberBand">
+      <ion-item (click)="clickCategoria(categoria)" style="border-bottom: solid 0.7px;border-bottom-color: #cacaca7d;">
+        <ion-avatar item-start>
+          <img src="assets/imgs/{{categoria.imgCategoria}}">
+        </ion-avatar>
+        <h2>{{categoria.nombre}}</h2>
+        <p>{{categoria.descripcion}}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+
+<ion-fab bottom right class="animated swing">
+  <button ion-fab (click)="crearMinisterio()" color="naranja">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

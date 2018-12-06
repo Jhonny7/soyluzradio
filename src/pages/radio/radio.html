@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-navbar color="titulo">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title style="font-family: alegre_sansregular;">Soy Luz Radio</ion-title>
+    </ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #060608;">
+  <div style="text-align: center;">
+    <img src="assets/imgs/micros.jpg" alt="Fry" class="animated rubberBand myImagen" />
+  </div>
+  <div style="text-align: center;" class="animated rubberBand">
+    <img id="play" *ngIf="audio" src="assets/imgs/play.png" alt="logo" 
+    style="text-align: center;margin-top: 34px;" (click)="playRadio();"/>
+
+    <img id="pause" *ngIf="!audio" src="assets/imgs/pausa.png" alt="logo" 
+    style="text-align: center;margin-top: 34px;" (click)="pauseRadio();"/>
+
+    
+  </div>
+
+</ion-content>

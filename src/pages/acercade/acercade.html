@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="titulo">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="font-family: alegre_sansregular;">Acerca de</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color: #000;">
+  <div style="margin-bottom: 30px;text-align: center;padding-top: 13%;">
+    <img src="assets/imgs/logo.png" style="width: 45%;margin-bottom: 13px;">
+    <div>
+      <p style="color:#fff">Código de Versión {{versionCode}}</p>
+      <p style="color:#fff">Versión {{versionNumber}}</p>
+      <p *ngIf="imei !== null" style="color:#fff">{{imei}}</p>
+      <p style="color:#fff">&copy; {{anio}} www.soyluzradio.com</p>
+      <p style="color:#fff">Todos los derechos reservados</p>
+    </div>
+  </div>
+</ion-content>
